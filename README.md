@@ -1,14 +1,10 @@
-This sets up an nginx server that acts as a front-router for host names to
-proxy them back to app servers.
+This sets up an nginx server that acts as a front-router for host names to proxy them back to app servers.
 
-The use-case is to map host names (i.e. for different apps or even different kinds of customers)
-to backends based on a redis lookup.
+The use-case is to map host names (i.e. for different apps or even different kinds of customers) to backends based on a redis lookup.
 
-For example, `customer-a.example.com` might be using `v1.app.foo.example.com`, and
-`customer-b.example.com` might be using `v2.app.foo.example.com`.
+For example, `customer-a.example.com` might be using `v1.app.foo.example.com`, and `customer-b.example.com` might be using `v2.app.foo.example.com`.
 
-It may not be desirable (or even possible) to use DNS. In those cases, this front-router
-can sit in front of your app clusters and proxy requests to the proper backends.
+It may not be desirable (or even possible) to use DNS. In those cases, this front-router can sit in front of your app clusters and proxy requests to the proper backends.
 
 
 ```
@@ -42,11 +38,10 @@ docker run . \
   -p 80:8080
 ```
 
+
 **Note: ulimit**
 
-nginx is set up with 10000 worker connections. This is a lot, but should be fine (and desirable) in most production environments. But the real
-max is limited by the environments ulimit which is typically quite low (~1024). So the `--ulimit` flag should be specified to raise it for
-nginx.
+nginx is set up with 10000 worker connections. This is a lot, but should be fine (and desirable) in most production environments. But the real max is limited by the environments ulimit which is typically quite low (~1024). So the `--ulimit` flag should be specified to raise it for nginx.
 
 # Exposed Ports
 
@@ -73,5 +68,4 @@ The following environmental variables are available to change some small operati
 | `NAMESERVER`              | Which DNS resolver nginx should use to resolve host names (if the lookup returns a hostname). Default: THe resolver in /etc/resolve.conf        |
 | `LOG_LEVEL`               | nginx error log level. Default: _warn_                                                                                                          |
 
-You can specify these as `-e "VAR=VAL"` flags when running the image. Another way is to create your own Dockerfile and codify the [`ENV`](https://docs.docker.com/engine/reference/builder/#env)
-vars within.
+You can specify these as `-e "VAR=VAL"` flags when running the image. Another way is to create your own Dockerfile and codify the [`ENV`](https://docs.docker.com/engine/reference/builder/#env) vars within.

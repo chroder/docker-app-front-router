@@ -22,7 +22,7 @@ if [ "$AFR_CACHE_SIZE" == "" ]; then
     export AFR_CACHE_SIZE="5000"
 fi
 
-if [ "AFR_CACHE_TIME" == "" ]; then
+if [ "$AFR_CACHE_TIME" == "" ]; then
     export AFR_CACHE_TIME="5"
 fi
 
