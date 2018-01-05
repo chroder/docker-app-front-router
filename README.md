@@ -24,6 +24,12 @@ can sit in front of your app clusters and proxy requests to the proper backends.
                                                               +----------------+
 ```
 
+# Resources
+
+* [GitHub](https://github.com/chroder/docker-app-front-router)
+* [Bug Reports](https://github.com/chroder/docker-app-front-router/issues)
+* [Docker Hub](https://hub.docker.com/r/chroder/app-front-router/)
+
 # Example usage
 
 ```
